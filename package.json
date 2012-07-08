@@ -1,18 +1,26 @@
 {
-  "author": "Daniel Oltmanns <info@knurt.de> (http://www.knurtsysteme.de)",
   "name": "heinzelmann",
-  "main": "./index.js",
   "description": "A loose collection of useful and useless Utilities",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "author": {
+    "name": "Daniel Oltmanns",
+    "email": "info@knurt.de",
+    "company": "KNURT Systeme",
+    "homepage": "http://www.knurtsysteme.de"
+  },
+  "main": "./index.js",
   "homepage": "https://github.com/knurtsysteme/node-heinzelmann",
   "repository": {
     "type": "git",
     "url": "git://github.com/knurtsysteme/node-heinzelmann.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "mongodb": ">= 1.0.2"
+  },
   "devDependencies": {},
   "optionalDependencies": {},
   "engines": {
     "node": "*"
-  }
+  },
+  "optionalDependencies": {}
 }

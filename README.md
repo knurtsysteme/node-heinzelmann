@@ -5,20 +5,25 @@ The Node-[Heinzelmann](http://en.wikipedia.org/wiki/Heinzelm%C3%A4nnchen) is a l
 
 ## README Contents
 
-- [http-response](#a0)
-  - [download](#a0-0)
-  - [json](#a0-1)
+- [http-response](#a)
+  - [download](#a-a)
+  - [json](#a-b)
+- [http-request](#b)
+  - [ip](#b-a)
+  - [summary](#b-b)
+- [mongo-factory](#c)
+  - [client](#c-a)
   
-<a name="a0"/>
+<a name="a"/>
 ## http-response
 
 Utilities to write a response to the client. You get it with:
 
 ```js
-require('heinzelmann').util(name, args);
+require('heinzelmann').util('http-response', args);
 ```
 
-<a name="a0-0"/>
+<a name="a-a"/>
 ### download
 
 Send a File to the client.
@@ -52,7 +57,7 @@ var server = http.createServer(function(req, res) {
 server.listen(3000);
 ```
 
-<a name="a0-1"/>
+<a name="a-b"/>
 ### json
 
 Answer request with json.
@@ -72,3 +77,57 @@ var server = http.createServer(function(req, res) {
 server.listen(3000);
 ```
 
+<a name="b"/>
+## http-request
+
+Grep interesting information out of user's request.
+
+<a name="b-a"/>
+### ip
+
+return the ip address of the client. try to get the address even in case of proxies.
+
+```js
+var http = require('http');
+var heinzelmann = require('heinzelmann');
+
+var server = http.createServer(function(req, res) {
+  console.log(heinzelmann.util('http-request', request).ip());
+});
+
+server.listen(3000);
+```
+
+<a name="b-b"/>
+### summary
+
+return a summary of the request with ip address, cookies, user-agent and the date now.
+this is useful if you are not interested in the entire request paramesters.
+
+```js
+var http = require('http');
+var heinzelmann = require('heinzelmann');
+
+var server = http.createServer(function(req, res) {
+  console.log(heinzelmann.util('http-request', request).summary());
+});
+
+server.listen(3000);
+```
+
+
+<a name="c"/>
+### mongo-factory
+
+produce mongo purposes
+
+<a name="c-a"/>
+### client
+
+return a mongoclient setting default values. this is useful if you are tired to type "127.0.0.1" ...
+
+```js
+var mongodb = require('mongodb');
+var heinzelmann = require('heinzelmann');
+var mongoclient = heinzelmann.util('mongo-factory', 'db_name').client();
+```

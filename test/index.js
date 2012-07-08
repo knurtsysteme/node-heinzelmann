@@ -31,3 +31,32 @@ exports.httpResponseJSON = function(test) {
   test.done();
 };
 
+// mongo utils
+exports.mongoFactoryDefault = function(test) {
+  test.expect(2);
+  var mf = heinzelmann.util('mongo-factory', 'test-name');
+  var mongoclient = mf.client();
+  test.equals(typeof(mongoclient), 'object');
+  test.equals(typeof(mongoclient.open), 'function');
+  test.done();
+};
+
+// request utils
+exports.httpRequestGetIP = function(test) {
+  test.expect(5);
+  var requestMock = {
+    'connection' : { 
+      'socket' : { 
+        'remoteAddress' : "200.200.200.200"
+      }
+    }
+  };
+  var hr = heinzelmann.util('http-request', requestMock);
+  test.equals(typeof(hr), 'object');
+  test.equals(typeof(hr.summary()), 'object');
+  test.equals(hr.ip(), '200.200.200.200');
+  test.equals(hr.summary().ip, '200.200.200.200');
+  test.equals(heinzelmann.util('http-request', {}).ip(), 'unknown');
+  test.done();
+};
+
