@@ -21,6 +21,5 @@
   "optionalDependencies": {},
   "engines": {
     "node": "*"
-  },
-  "optionalDependencies": {}
+  }
 }
