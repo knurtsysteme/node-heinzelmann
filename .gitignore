@@ -1,0 +1,17 @@
+*.class
+*.settings
+*.project
+*.classpath
+*.log
+*/target
+*.swp
+*.swo
+.DS_Store
+*.jar
+*.war
+*.ear
+nbactions.xml
+nb-configuration.xml
+profiles.xml
+C:*
+node_modules/
