@@ -16,6 +16,9 @@ The Node-[Heinzelmann](http://en.wikipedia.org/wiki/Heinzelm%C3%A4nnchen) is a l
   - [client](#c-a)
 - [sitemap-factory](#d)
   - [get](#d-a)
+- [common-date-format](#e)
+  - [getRow](#e-a)
+  - [getW3CDateTime](#e-b)
   
 <a name="a"/>
 ## http-response
@@ -137,7 +140,7 @@ server.listen(3000);
 ```
 
 <a name="c"/>
-### mongo-factory
+## mongo-factory
 
 produce mongo purposes
 
@@ -154,7 +157,7 @@ var mongoclient = heinzelmann.util('mongo-factory', 'db_name').client();
 
 
 <a name="d"/>
-### sitemap-factory
+## sitemap-factory
 
 produce a google sitemap out of a given object. use given default values or system default values (lastmod "now", priority 1.00 and changefreq "monthly").
 
@@ -207,3 +210,51 @@ The output (where 2012-07-11T10:13:28+00:00 is the date "now"):
   </url>
 </urlset>
 ```
+
+<a name="e"/>
+## common-date-format
+
+format dates to common used representations. 
+
+for other things see:
+
+https://github.com/felixge/node-dateformat
+
+https://github.com/minodisk/dateformat-js
+
+for more options see file doc.
+
+<a name="e-a"/>
+### getRow
+
+return the date in a row
+
+```js
+var heinzelmann = require('heinzelmann');
+var date = new Date(2003, 4, 6, 7, 12, 55);
+var cdf = heinzelmann.util('common-date-format', date);
+console.log(cdf.getRow())
+```
+output:
+```
+'20030506071255'
+```
+
+<a name="e-b"/>
+### getW3CDateTime
+
+return a date in W3C Date and Time format with complete date plus hours, minutes and seconds:
+
+http://www.w3.org/TR/NOTE-datetime
+
+```js
+var heinzelmann = require('heinzelmann');
+var date = new Date(2003, 4, 6, 7, 12, 55);
+var cdf = heinzelmann.util('common-date-format', date);
+console.log(cdf.getW3CDateTime())
+```
+output:
+```
+'2003-05-06T07:12:55+00:00'
+```
+

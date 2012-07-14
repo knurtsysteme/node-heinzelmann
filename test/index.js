@@ -103,3 +103,16 @@ exports.httpRequestGetIP = function(test) {
   test.equals(heinzelmann.util('http-request', {}).ip(), 'unknown');
   test.done();
 };
+
+// a date id
+exports.commonDateFormat = function(test) {
+  test.expect(3);
+  var original = new Date(2003, 4, 6, 7, 12, 55);
+  var cdf = heinzelmann.util('common-date-format', original);
+  test.equals(cdf.getRow(), '20030506071255');
+  test.equals(cdf.getW3CDateTime(), '2003-05-06T07:12:55+00:00');
+  cdf.setDate(new Date());
+  test.equals(cdf.getRow().substr(0,4), new Date().getFullYear());
+  test.done();
+
+}
