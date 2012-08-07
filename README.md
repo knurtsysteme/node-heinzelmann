@@ -1,7 +1,9 @@
 node-heinzelmann
 ================
 
-The Node-[Heinzelmann](http://en.wikipedia.org/wiki/Heinzelm%C3%A4nnchen) is a loose collection of useful and useless Utilities written in JavaScript for [node.js](http://nodejs.org/)
+The Node-[Heinzelmann](http://en.wikipedia.org/wiki/Heinzelm%C3%A4nnchen) is a loose collection of useful and useless Utilities written in JavaScript for [node.js](http://nodejs.org/).
+
+For Installation type `npm install heinzelmann`
 
 ## README Contents
 
