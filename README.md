@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/knurtsysteme/node-heinzelmann.png)](http://travis-ci.org/knurtsysteme/node-heinzelmann)
 node-heinzelmann
 ================
 
