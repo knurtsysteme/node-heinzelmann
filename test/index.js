@@ -32,7 +32,7 @@ exports.httpResponseJSON = function(test) {
 };
 
 // all asserts in http-response--json.js ok?
-exports.httpResponseJSON = function(test) {
+exports.httpResponseJSONP = function(test) {
   test.expect(1);
   try {
     require('./http-response--jsonp');
