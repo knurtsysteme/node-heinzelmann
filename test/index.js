@@ -31,6 +31,18 @@ exports.httpResponseJSON = function(test) {
   test.done();
 };
 
+// all asserts in http-response--json.js ok?
+exports.httpResponseJSON = function(test) {
+  test.expect(1);
+  try {
+    require('./http-response--jsonp');
+    test.ok(true);
+  } catch (e) {
+    test.ok(false, 'should not throw exception');
+  }
+  test.done();
+};
+
 // all asserts in http-response--xml.js ok?
 exports.httpResponseJSON = function(test) {
   test.expect(1);

@@ -9,7 +9,7 @@ var callbackFiredWithData = false;
 // using heinzelmann function
 var serverToTest = function(req, res) {
   var resUtil = heinzelmann.util('http-response', res);
-  resUtil.download("testfile.zip");
+  resUtil.download(__dirname + '/testfile.zip');
 };
 
 // test the response
